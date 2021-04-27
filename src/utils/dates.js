@@ -11,3 +11,9 @@ export const getCurrentDay = () => {
   const day = new Date().getDate();
   return day < 10 ? `0${day}` : day;
 };
+
+//Year
+export const getCurrentYear = () => {
+  const year = new Date().getFullYear();
+  return year;
+};

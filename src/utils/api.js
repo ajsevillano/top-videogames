@@ -1,4 +1,4 @@
-import { getCurrentMonth, getCurrentDay } from '../utils/dates';
+import { getCurrentMonth, getCurrentDay, getCurrentYear } from '../utils/dates';
 
 //Bare URL
 const baseUrl = 'https://api.rawg.io/api';
