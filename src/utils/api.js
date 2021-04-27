@@ -1,3 +1,5 @@
+import { getCurrentMonth } from '../utils/dates';
+
 //Bare URL
 const baseUrl = 'https://api.rawg.io/api';
 
