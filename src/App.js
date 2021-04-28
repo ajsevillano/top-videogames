@@ -1,8 +1,14 @@
-import useApi from './utils/useApi';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { loadGames } from './actions/gamesAction';
 
 function App() {
-  const [popularGamesURL] = useApi();
-  return <div className="App">{popularGamesURL}</div>;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadGames());
+  });
+
+  return <div className="App">App</div>;
 }
 
 export default App;
