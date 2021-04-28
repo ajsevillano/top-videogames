@@ -8,7 +8,10 @@ import {
 } from '../utils/dates';
 
 //Bare URL
-const baseUrl = 'https://api.rawg.io/api';
+const baseUrl = 'https://api.rawg.io/api/';
 
-//Popular Games
-const popularGames = 'https://api.rawg.io/api/games';
+//Popular games filter
+const popularGames = `games?dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
+
+//Popular games url
+export const popularGamesURL = () => `${baseUrl}${popularGames}`;
