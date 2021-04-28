@@ -1,8 +1,8 @@
-import { popularGamesURL } from './utils/api';
+import useApi from './utils/useApi';
 
 function App() {
-  console.log(popularGamesURL());
-  return <div className="App">hello</div>;
+  const [popularGamesURL] = useApi();
+  return <div className="App">{popularGamesURL}</div>;
 }
 
 export default App;
