@@ -1,7 +1,15 @@
-import React from 'react';
+import { useEffect } from 'react';
+
+//Redux
+import { useDispatch } from 'react-redux';
+import { loadGames } from '../actions/gamesAction';
 
 const Home = () => {
-  return <div></div>;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadGames());
+  });
+  return <div>Home</div>;
 };
 
 export default Home;
