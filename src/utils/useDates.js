@@ -19,9 +19,13 @@ const useDates = () => {
     getCurrentYear() - 1
   }-${getCurrentMonth()}-${getCurrentDay()}`;
 
+  const nextYear = `${
+    getCurrentYear() + 1
+  }-${getCurrentMonth()}-${getCurrentDay()}`;
+
   const currentDate = `${getCurrentYear()}-${getCurrentMonth()}-${getCurrentDay()}`;
 
-  return [lastYear, currentDate];
+  return [lastYear, nextYear, currentDate];
 };
 
 export default useDates;
