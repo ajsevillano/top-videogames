@@ -6,15 +6,19 @@ const useApi = () => {
   //Api configuration: URL,Api key & filters
   const baseUrl = 'https://api.rawg.io/api/';
   const key = process.env.REACT_APP_API_KEY;
-  const order = '-rating&page_size=10';
+  const orderPopularGames = '-rating';
+  const orderUpcomingGames = '-added';
+  const itemsPerPage = 10;
 
-  //Popular games filter
-  const popularGames = `games?key=${key}&dates=${lastYear},${currentDate}&ordering=${order}`;
-  const upcomingGamesURL = `games?key=${key}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
-  //Popular games url
+  //Games filter
+  const popularGames = `games?key=${key}&dates=${lastYear},${currentDate}&ordering=${orderPopularGames}&page_size=${itemsPerPage}`;
+  const upcomingGames = `games?key=${key}&dates=${currentDate},${nextYear}&ordering=${orderUpcomingGames}&page_size=${itemsPerPage}`;
+
+  //Api filters URL
   const popularGamesURL = `${baseUrl}${popularGames}`;
+  const upcomingGamesURL = `${baseUrl}${upcomingGames}`;
 
-  return [popularGamesURL];
+  return [popularGamesURL, upcomingGamesURL];
 };
 
 export default useApi;
