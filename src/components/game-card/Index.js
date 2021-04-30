@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const GameCard = () => {
+const GameCard = ({ name, release, image }) => {
   return (
     <div>
-      <h3>Game name</h3>
-      <p>Release date</p>
+      <h3>{name}</h3>
+      <p>{release}</p>
+      <img src={image} alt={name} />
     </div>
   );
 };
