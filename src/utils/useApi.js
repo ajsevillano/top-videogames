@@ -16,12 +16,15 @@ const useApi = () => {
   const upcomingGames = `games?key=${key}&dates=${currentDate},${nextYear}&ordering=${orderUpcomingGames}&page_size=${itemsPerPage}`;
   const newGames = `games?key=${key}&dates=${lastYear},${currentDate}&ordering=${orderNewGAmes}&page_size=${itemsPerPage}`;
 
+  //Game details
+  const gameDetailsURL = (game_id) => `${baseUrl}games/${game_id}`;
+
   //Api filters URL
   const popularGamesURL = `${baseUrl}${popularGames}`;
   const upcomingGamesURL = `${baseUrl}${upcomingGames}`;
   const newGamesURL = `${baseUrl}${newGames}`;
 
-  return [popularGamesURL, upcomingGamesURL, newGamesURL];
+  return [popularGamesURL, upcomingGamesURL, newGamesURL, gameDetailsURL];
 };
 
 export default useApi;
