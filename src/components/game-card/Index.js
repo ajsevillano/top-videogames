@@ -7,7 +7,7 @@ import { loadDetail } from '../../actions/detailsAction';
 const GameCard = ({ name, release, image, id, screenshots }) => {
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
-    dispatch(loadDetail(id));
+    dispatch(loadDetail(id, screenshots));
   };
 
   return (
