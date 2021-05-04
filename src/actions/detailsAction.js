@@ -4,6 +4,10 @@ import useApi from '../utils/useApi';
 export const loadDetail = (id, short_screenshots) => async (dispatch) => {
   const [gameDetailsURL] = useApi();
 
+  dispatch({
+    type: 'LOADING_DETAIL',
+  });
+
   //FETCH AXIOS
   const detailData = await axios.get(gameDetailsURL(id));
 
