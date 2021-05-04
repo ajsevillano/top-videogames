@@ -8,39 +8,36 @@ const GameDetails = () => {
   const { game, screenshot } = useSelector((state) => state.detail);
 
   return (
-    <CardShadow>
+    <Modal>
       <Detail>
-        <div className="stats">
+        <Stats>
           <div className="rating">
             <h3>{game.name}</h3>
-            <p>{game.rating}</p>
+            <p>Rating: {game.rating}</p>
           </div>
-          <div className="info">
+          <Info>
             <h3>Platform</h3>
-            <div className="platforms">
-              {/* {game.platforms.map((data) => (
-                <h3 key={data.platform.id}>{data.platform.name}</h3>
-              ))} */}
+            <Platforms>
               {game.platforms.map((data) => (
-                <h3> {data.platform.name}</h3>
+                <h3 key={data.platform.id}>{data.platform.name}</h3>
               ))}
-            </div>
-          </div>
-        </div>
-        <div className="media">
+            </Platforms>
+          </Info>
+        </Stats>
+        <Media>
           <img src={game.background_image} alt={game.background_image} />
-        </div>
+        </Media>
         <div className="gallery">
-          {/* {screenshot.results.map((screenshot) => (
+          {screenshot.results.map((screenshot) => (
             <img src={screenshot.image} key={screenshot.id} alt="game" />
-          ))} */}
+          ))}
         </div>
       </Detail>
-    </CardShadow>
+    </Modal>
   );
 };
 
-const CardShadow = styled(motion.div)`
+const Modal = styled(motion.div)`
   width: 100%;
   min-height: 100vh;
   overflow-y: scroll;
@@ -68,6 +65,33 @@ const Detail = styled(motion.div)`
   left: 10%;
   background: white;
   color: black;
+
+  img {
+    width: 100%;
+  }
+`;
+
+const Stats = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Info = styled(motion.div)`
+  text-align: center;
+`;
+
+const Platforms = styled(motion.div)`
+  display: flex;
+  justify-content: space-evenly;
+
+  img {
+    margin-left: 3rem;
+  }
+`;
+
+const Media = styled(motion.div)`
+  margin-top: 5rem;
   img {
     width: 100%;
   }
