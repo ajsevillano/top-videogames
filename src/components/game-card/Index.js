@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 import { loadDetail } from '../../actions/detailsAction';
 
-const GameCard = ({ name, release, image, id }) => {
+const GameCard = ({ name, release, image, id, screenshots }) => {
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
     dispatch(loadDetail(id));
