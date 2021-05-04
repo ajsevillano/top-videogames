@@ -2,7 +2,7 @@ import axios from 'axios';
 import useApi from '../utils/useApi';
 
 export const loadGames = () => async (dispatch) => {
-  const [popularGamesURL, upcomingGamesURL, newGamesURL] = useApi();
+  const [, popularGamesURL, upcomingGamesURL, newGamesURL] = useApi();
   //FETCH AXIOS
   const popularData = await axios.get(popularGamesURL);
   const upcomingData = await axios.get(upcomingGamesURL);
