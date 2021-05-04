@@ -16,8 +16,10 @@ import GameDetails from '../components/game-details/Index';
 import { useLocation } from 'react-router-dom';
 
 const Home = () => {
+  //Location
   const location = useLocation();
-
+  const pathID = location.pathname.split('/')[2];
+  //Fetch
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadGames());
@@ -28,7 +30,7 @@ const Home = () => {
 
   return (
     <GameList>
-      {/* <GameDetails /> */}
+      {pathID && <GameDetails />}
       <h2>Upcoming games</h2>
       <Games>
         {upcoming.map((game) => (

@@ -18,7 +18,7 @@ const GameDetails = () => {
           <Info>
             <h3>Platform</h3>
             <Platforms>
-              {game.platforms.map((data) => (
+              {game.platforms?.map((data) => (
                 <h3 key={data.platform.id}>{data.platform.name}</h3>
               ))}
             </Platforms>
@@ -27,8 +27,11 @@ const GameDetails = () => {
         <Media>
           <img src={game.background_image} alt={game.background_image} />
         </Media>
+        <Description>
+          <p>{game.description_raw}</p>
+        </Description>
         <div className="gallery">
-          {screenshot.results.map((screenshot) => (
+          {screenshot.results?.map((screenshot) => (
             <img src={screenshot.image} key={screenshot.id} alt="game" />
           ))}
         </div>
@@ -95,6 +98,10 @@ const Media = styled(motion.div)`
   img {
     width: 100%;
   }
+`;
+
+const Description = styled(motion.div)`
+  margin: 5rem 0rem;
 `;
 
 export default GameDetails;
