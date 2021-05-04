@@ -8,8 +8,8 @@ const GameDetails = () => {
   const { game, screenshot } = useSelector((state) => state.detail);
 
   return (
-    <div className="card-shadow">
-      <div className="detail">
+    <CardShadow>
+      <Detail>
         <div className="stats">
           <div className="rating">
             <h3>{game.name}</h3>
@@ -18,23 +18,46 @@ const GameDetails = () => {
           <div className="info">
             <h3>Platform</h3>
             <div className="platforms">
-              {game.platforms.map((data) => (
+              {/* {game.platforms.map((data) => (
                 <h3 key={data.platform.id}>{data.platform.name}</h3>
+              ))} */}
+              {game.platforms.map((data) => (
+                <h3> {data.platform.name}</h3>
               ))}
             </div>
           </div>
         </div>
         <div className="media">
-          <img src={game.background_image} alt="Image" />
+          <img src={game.background_image} alt="background" />
         </div>
         <div className="gallery">
-          {screenshot.results.map((screenshot) => (
+          {/* {screenshot.results.map((screenshot) => (
             <img src={screenshot.image} key={screenshot.id} alt="game" />
-          ))}
+          ))} */}
         </div>
-      </div>
-    </div>
+      </Detail>
+    </CardShadow>
   );
 };
+
+const CardShadow = styled(motion.div)`
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+`;
+
+const Detail = styled(motion.div)`
+  width: 80%;
+  border-radius: 1rem;
+  padding: 2rem 5rem;
+  position: absolute;
+  left: 10%;
+  background: white;
+  color: black;
+`;
 
 export default GameDetails;
