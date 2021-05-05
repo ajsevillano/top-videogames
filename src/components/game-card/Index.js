@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 import { loadDetail } from '../../actions/detailsAction';
+import resizeImage from '../../utils/resizeImage';
 
 //Router
 import { Link } from 'react-router-dom';
@@ -19,7 +20,7 @@ const GameCard = ({ name, release, image, id, screenshots }) => {
       <Link to={`/game/${id}`}>
         <h3>{name}</h3>
         <p>{release}</p>
-        <img src={image} alt={name} />
+        <img src={resizeImage(image, 640)} alt={name} />
       </Link>
     </StyledGame>
   );
