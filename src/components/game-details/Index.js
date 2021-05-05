@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+import resizeImage from '../../utils/resizeImage';
+
 const GameDetails = () => {
   //Extract data from Store
   const { game, screenshot, isLoading } = useSelector((state) => state.detail);
-
+  console.log(screenshot);
   const history = useHistory();
 
   const exitDetailHandler = (e) => {
@@ -37,14 +39,17 @@ const GameDetails = () => {
               </Info>
             </Stats>
             <Media>
-              <img src={game.background_image} alt={game.background_image} />
+              <img
+                src={resizeImage(game.background_image, 1280)}
+                alt={game.background_image}
+              />
             </Media>
             <Description>
               <p>{game.description_raw}</p>
             </Description>
             <div className="gallery">
-              {screenshot.results?.map((screenshot) => (
-                <img src={screenshot.image} key={screenshot.id} alt="game" />
+              {screenshot?.map((screenshots) => (
+                <img src={screenshots.image} key={screenshots.id} alt="game" />
               ))}
             </div>
           </Detail>
