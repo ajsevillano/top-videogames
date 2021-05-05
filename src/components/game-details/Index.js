@@ -9,7 +9,7 @@ import resizeImage from '../../utils/resizeImage';
 const GameDetails = () => {
   //Extract data from Store
   const { game, screenshot, isLoading } = useSelector((state) => state.detail);
-  console.log(screenshot);
+
   const history = useHistory();
 
   const exitDetailHandler = (e) => {
@@ -49,7 +49,11 @@ const GameDetails = () => {
             </Description>
             <div className="gallery">
               {screenshot?.map((screenshots) => (
-                <img src={screenshots.image} key={screenshots.id} alt="game" />
+                <img
+                  src={resizeImage(screenshots.image, 1280)}
+                  key={screenshots.id}
+                  alt="game"
+                />
               ))}
             </div>
           </Detail>
