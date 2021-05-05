@@ -1,9 +1,17 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+//Styles & animations
+import {
+  Modal,
+  Detail,
+  Stats,
+  Info,
+  Platforms,
+  Media,
+  Description,
+} from './game-details.styles';
 //Redux
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+//Utils
 import resizeImage from '../../utils/resizeImage';
 
 const GameDetails = () => {
@@ -62,69 +70,5 @@ const GameDetails = () => {
     </>
   );
 };
-
-const Modal = styled(motion.div)`
-  width: 100%;
-  min-height: 100vh;
-  overflow-y: scroll;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: #ff7676;
-  }
-  &::-webkit-scrollbar-track {
-    background: white;
-  }
-`;
-
-const Detail = styled(motion.div)`
-  width: 80%;
-  border-radius: 1rem;
-  padding: 2rem 5rem;
-  position: absolute;
-  left: 10%;
-  background: white;
-  color: black;
-
-  img {
-    width: 100%;
-  }
-`;
-
-const Stats = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const Info = styled(motion.div)`
-  text-align: center;
-`;
-
-const Platforms = styled(motion.div)`
-  display: flex;
-  justify-content: space-evenly;
-
-  img {
-    margin-left: 3rem;
-  }
-`;
-
-const Media = styled(motion.div)`
-  margin-top: 5rem;
-  img {
-    width: 100%;
-  }
-`;
-
-const Description = styled(motion.div)`
-  margin: 5rem 0rem;
-`;
 
 export default GameDetails;
