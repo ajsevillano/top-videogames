@@ -2,15 +2,25 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 //Redux
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const GameDetails = () => {
   //Extract data from Store
   const { game, screenshot, isLoading } = useSelector((state) => state.detail);
 
+  const history = useHistory();
+
+  const exitDetailHandler = (e) => {
+    const element = e.target;
+    if (element.classList.contains('shadow')) {
+      document.body.style.overflow = 'auto';
+      history.push('/');
+    }
+  };
   return (
     <>
       {!isLoading && (
-        <Modal>
+        <Modal className="shadow" onClick={exitDetailHandler}>
           <Detail>
             <Stats>
               <div className="rating">

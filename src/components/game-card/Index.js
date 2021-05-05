@@ -11,6 +11,7 @@ const GameCard = ({ name, release, image, id, screenshots }) => {
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
     dispatch(loadDetail(id, screenshots));
+    document.body.style.overflow = 'hidden';
   };
 
   return (
@@ -30,6 +31,7 @@ const StyledGame = styled(motion.div)`
   text-align: center;
   border-radius: 1rem;
   cursor: pointer;
+  overflow: hidden;
 
   img {
     width: 100%;
