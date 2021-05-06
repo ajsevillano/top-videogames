@@ -15,7 +15,6 @@ const overflowAuto = (history) => {
   history.push('/');
   return (document.body.style.overflow = 'auto');
 };
-
 export const exitDetailHandler = (e, history) => {
   e.target.classList.contains('shadow') && overflowAuto(history);
 };
@@ -32,6 +31,7 @@ export const getRating = (gameRating) => {
   return stars;
 };
 
+//Conver platform text to react-icons icons
 export const getPlatformIcon = (platform, id) => {
   switch (platform) {
     case 'PC':
