@@ -1,4 +1,5 @@
 //Icons
+import { BsStar, BsStarFill } from 'react-icons/bs';
 import {
   SiSteam,
   SiPlaystation,
@@ -17,6 +18,18 @@ const overflowAuto = (history) => {
 
 export const exitDetailHandler = (e, history) => {
   e.target.classList.contains('shadow') && overflowAuto(history);
+};
+
+//Convert game rating from text to react-icons icons
+export const getRating = (gameRating) => {
+  const stars = [];
+  const roundRating = Math.floor(gameRating);
+  for (let i = 1; i <= 5; i++) {
+    i <= roundRating
+      ? stars.push(<BsStarFill color="#ff7676" />)
+      : stars.push(<BsStar color="#ff7676" />);
+  }
+  return stars;
 };
 
 export const getPlatformIcon = (platform, id) => {
