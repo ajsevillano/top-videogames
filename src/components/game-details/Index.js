@@ -13,6 +13,8 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 //Utils
 import resizeImage from '../../utils/resizeImage';
+//Icons
+import { FaSteam, FaXbox, FaPlaystation } from 'react-icons/fa';
 
 const GameDetails = () => {
   //Extract data from Store
@@ -27,6 +29,19 @@ const GameDetails = () => {
 
   const exitDetailHandler = (e) => {
     e.target.classList.contains('shadow') && overflowAuto();
+  };
+
+  const getPlatformIcon = (platform) => {
+    switch (platform) {
+      case 'PC':
+        return <FaSteam />;
+      case 'PlayStation 5':
+        return <FaPlaystation />;
+      case 'Xbox Series S/X':
+        return <FaXbox />;
+      default:
+        break;
+    }
   };
 
   return (
