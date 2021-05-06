@@ -50,8 +50,9 @@ export const Platforms = styled(motion.div)`
   display: flex;
   justify-content: space-evenly;
 
-  img {
-    margin-left: 3rem;
+  svg {
+    margin-left: 1rem;
+    color: #696969;
   }
 `;
 

@@ -14,7 +14,15 @@ import { useHistory } from 'react-router-dom';
 //Utils
 import resizeImage from '../../utils/resizeImage';
 //Icons
-import { FaSteam, FaXbox, FaPlaystation } from 'react-icons/fa';
+import {
+  SiSteam,
+  SiPlaystation,
+  SiXbox,
+  SiNintendoswitch,
+  SiApple,
+  SiIos,
+  SiLinux,
+} from 'react-icons/si';
 
 const GameDetails = () => {
   //Extract data from Store
@@ -34,13 +42,23 @@ const GameDetails = () => {
   const getPlatformIcon = (platform) => {
     switch (platform) {
       case 'PC':
-        return <FaSteam />;
-      case 'PlayStation 5':
-        return <FaPlaystation />;
-      case 'Xbox Series S/X':
-        return <FaXbox />;
+        return <SiSteam size={32} />;
+      case 'PlayStation':
+        return <SiPlaystation size={32} />;
+      case 'Xbox':
+        return <SiXbox size={32} />;
+      case 'Nintendo':
+        return <SiNintendoswitch size={32} />;
+      case 'iOS':
+        return <SiIos size={32} />;
+      case 'Linux':
+        return <SiLinux size={32} />;
+
+      case 'Apple Macintosh':
+        return <SiApple size={32} />;
+
       default:
-        break;
+        return null;
     }
   };
 
@@ -57,9 +75,9 @@ const GameDetails = () => {
               <Info>
                 <h3>Platform</h3>
                 <Platforms>
-                  {game.platforms?.map((data) => (
-                    <h3 key={data.platform.id}>{data.platform.name}</h3>
-                  ))}
+                  {game.parent_platforms?.map((data) =>
+                    getPlatformIcon(data.platform.name)
+                  )}
                 </Platforms>
               </Info>
             </Stats>
