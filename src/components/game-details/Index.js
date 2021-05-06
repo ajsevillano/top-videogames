@@ -39,23 +39,22 @@ const GameDetails = () => {
     e.target.classList.contains('shadow') && overflowAuto();
   };
 
-  const getPlatformIcon = (platform) => {
+  const getPlatformIcon = (platform, id) => {
     switch (platform) {
       case 'PC':
-        return <SiSteam size={32} />;
+        return <SiSteam size={32} key={id} />;
       case 'PlayStation':
-        return <SiPlaystation size={32} />;
+        return <SiPlaystation size={32} key={id} />;
       case 'Xbox':
-        return <SiXbox size={32} />;
+        return <SiXbox size={32} key={id} />;
       case 'Nintendo':
-        return <SiNintendoswitch size={32} />;
+        return <SiNintendoswitch size={32} key={id} />;
       case 'iOS':
-        return <SiIos size={32} />;
+        return <SiIos size={32} key={id} />;
       case 'Linux':
-        return <SiLinux size={32} />;
-
+        return <SiLinux size={32} key={id} />;
       case 'Apple Macintosh':
-        return <SiApple size={32} />;
+        return <SiApple size={32} key={id} />;
 
       default:
         return null;
@@ -76,7 +75,7 @@ const GameDetails = () => {
                 <h3>Platform</h3>
                 <Platforms>
                   {game.parent_platforms?.map((data) =>
-                    getPlatformIcon(data.platform.name)
+                    getPlatformIcon(data.platform.name, data.platform.id)
                   )}
                 </Platforms>
               </Info>
