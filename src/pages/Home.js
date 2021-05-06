@@ -9,8 +9,8 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 //Components
-import GameCard from '../components/game-card/Index';
-import GameDetails from '../components/game-details/Index';
+import GameCard from '../components/game-card/index';
+import GameDetails from '../components/game-details/index';
 
 //Router
 import { useLocation } from 'react-router-dom';

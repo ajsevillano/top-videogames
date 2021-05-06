@@ -20,12 +20,13 @@ const GameDetails = () => {
 
   const history = useHistory();
 
+  const overflowAuto = () => {
+    history.push('/');
+    return (document.body.style.overflow = 'auto');
+  };
+
   const exitDetailHandler = (e) => {
-    const element = e.target;
-    if (element.classList.contains('shadow')) {
-      document.body.style.overflow = 'auto';
-      history.push('/');
-    }
+    e.target.classList.contains('shadow') && overflowAuto();
   };
   return (
     <>
