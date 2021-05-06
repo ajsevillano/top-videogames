@@ -8,17 +8,32 @@ import {
   Media,
   Description,
 } from './game-details.styles';
+
 //Redux
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
 //Utils
 import resizeImage from '../../utils/resizeImage';
 import { exitDetailHandler, getPlatformIcon } from './game-details.utils';
+
+import { BsStar, BsStarFill } from 'react-icons/bs';
 
 const GameDetails = () => {
   //Extract data from Store
   const { game, screenshot, isLoading } = useSelector((state) => state.detail);
   const history = useHistory();
+
+  const getRating = () => {
+    const stars = [];
+    const roundRating = Math.floor(game.rating);
+    for (let i = 1; i <= 5; i++) {
+      i <= roundRating
+        ? stars.push(<BsStarFill color="#ff7676" />)
+        : stars.push(<BsStar color="#ff7676" />);
+    }
+    return stars;
+  };
 
   return (
     <>
@@ -32,6 +47,7 @@ const GameDetails = () => {
               <div className="rating">
                 <h3>{game.name}</h3>
                 <p>Rating: {game.rating}</p>
+                <p>{getRating()}</p>
               </div>
               <Info>
                 <h3>Platform</h3>
