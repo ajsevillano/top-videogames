@@ -28,6 +28,7 @@ const GameDetails = () => {
   const exitDetailHandler = (e) => {
     e.target.classList.contains('shadow') && overflowAuto();
   };
+
   return (
     <>
       {!isLoading && (
