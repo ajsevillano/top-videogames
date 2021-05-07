@@ -17,3 +17,15 @@ export const loadGames = () => async (dispatch) => {
     },
   });
 };
+
+export const fetchSearch = (game_name) => async (dispatch) => {
+  const [, , , , searchGameURL] = useApi();
+  const searchFetch = await axios.get(searchGameURL(game_name));
+
+  dispatch({
+    type: 'FETCH_SEARCHED',
+    payload: {
+      searched: searchFetch.data.results,
+    },
+  });
+};
