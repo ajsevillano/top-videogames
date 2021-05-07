@@ -20,12 +20,22 @@ const useApi = () => {
   const gameDetailsURL = (game_id) =>
     `https://api.rawg.io/api/games/${game_id}.json?&key=${key}`;
 
+  //Search
+  const searchGameURL = (game_name) =>
+    `${baseUrl}games?search=${game_name}&page_size=${itemsPerPage}`;
+
   //Api filters URL
   const popularGamesURL = `${baseUrl}${popularGames}`;
   const upcomingGamesURL = `${baseUrl}${upcomingGames}`;
   const newGamesURL = `${baseUrl}${newGames}`;
 
-  return [gameDetailsURL, popularGamesURL, upcomingGamesURL, newGamesURL];
+  return [
+    gameDetailsURL,
+    popularGamesURL,
+    upcomingGamesURL,
+    newGamesURL,
+    searchGameURL,
+  ];
 };
 
 export default useApi;
