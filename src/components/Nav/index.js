@@ -1,27 +1,17 @@
 import { StyledNav, StyledLogo } from './nav.styles';
 import logo from '../../images/logo.svg';
-import { fetchSearch } from '../../actions/gamesAction';
-import { useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
+import useNavigation from './nav.utils';
 
 const Nav = () => {
-  const dispatch = useDispatch();
   const buttonRef = useRef();
   const [textInput, setTextInput] = useState('');
+  const [inputHandler, submitSearch] = useNavigation(
+    textInput,
+    setTextInput,
+    buttonRef
+  );
 
-  const submitOk = () => {
-    dispatch(fetchSearch(textInput));
-    return (buttonRef.current.style.display = 'none');
-  };
-
-  const inputHandler = (e) => {
-    setTextInput(e.target.value);
-  };
-  const submitSearch = (e) => {
-    e.preventDefault();
-    !textInput ? (buttonRef.current.style.display = 'block') : submitOk();
-    setTextInput('');
-  };
   return (
     <StyledNav>
       <StyledLogo>
