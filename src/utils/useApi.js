@@ -22,7 +22,7 @@ const useApi = () => {
 
   //Search
   const searchGameURL = (game_name) =>
-    `${baseUrl}games?search=${game_name}&page_size=${itemsPerPage}`;
+    `${baseUrl}games?key=${key}&search=${game_name}&page_size=${itemsPerPage}`;
 
   //Api filters URL
   const popularGamesURL = `${baseUrl}${popularGames}`;
