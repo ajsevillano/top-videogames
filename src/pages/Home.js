@@ -26,11 +26,32 @@ const Home = () => {
   }, [dispatch]);
 
   //Extract data from Store
-  const { popular, upcoming, newGames } = useSelector((state) => state.games);
+  const { popular, upcoming, newGames, searched } = useSelector(
+    (state) => state.games
+  );
 
   return (
     <GameList>
       {pathID && <GameDetails />}
+      {searched.length ? (
+        <>
+          <h2>Searched games</h2>
+          <Games>
+            {searched.map((game) => (
+              <GameCard
+                name={game.name}
+                release={game.released}
+                id={game.id}
+                key={game.id}
+                image={game.background_image}
+                screenshots={game.short_screenshots}
+              />
+            ))}
+          </Games>
+        </>
+      ) : (
+        ''
+      )}
       <h2>Upcoming games</h2>
       <Games>
         {upcoming.map((game) => (

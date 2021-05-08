@@ -13,7 +13,7 @@ const Nav = () => {
   };
   const submitSearch = (e) => {
     e.preventDefault();
-    dispatch(fetchSearch(textInput));
+    textInput && dispatch(fetchSearch(textInput));
     setTextInput('');
   };
   return (
@@ -22,11 +22,9 @@ const Nav = () => {
         <img src={logo} alt="Logo" />
         <h1>Top Videogames</h1>
       </StyledLogo>
-      <form className="search">
+      <form onSubmit={submitSearch} className="search">
         <input value={textInput} onChange={inputHandler} type="text" />
-        <button onClick={submitSearch} type="submit">
-          Search
-        </button>
+        <button type="submit">Search</button>
       </form>
     </StyledNav>
   );
