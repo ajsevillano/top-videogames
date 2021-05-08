@@ -25,6 +25,12 @@ export const StyledNav = styled(motion.nav)`
     background: #ff7676;
     color: white;
   }
+
+  h4 {
+    display: none;
+    margin-top: 1rem;
+    color: #ff7676;
+  }
 `;
 
 export const StyledLogo = styled(motion.div)`
