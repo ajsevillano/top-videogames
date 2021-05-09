@@ -1,5 +1,5 @@
 //Resize Images util
-const resizeImage = (imagePath, size) => {
+const useResizeImage = (imagePath, size) => {
   if (!imagePath) return;
   const image = imagePath.match(/media\/screenshots/)
     ? imagePath.replace(
@@ -10,4 +10,4 @@ const resizeImage = (imagePath, size) => {
   return image;
 };
 
-export default resizeImage;
+export default useResizeImage;

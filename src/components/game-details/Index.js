@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 //Utils
-import resizeImage from '../../utils/resizeImage';
+import useResizeImage from '../../utils/useResizeImage';
 import {
   exitDetailHandler,
   getPlatformIcon,
@@ -25,7 +25,8 @@ const GameDetails = () => {
   //Extract data from Store
   const { game, screenshot, isLoading } = useSelector((state) => state.detail);
   const history = useHistory();
-
+  const resizeImg = useResizeImage(game.background_image, 1280);
+  const ResizeScreenshot = (img, size) => useResizeImage(img, size);
   return (
     <>
       {!isLoading && (
@@ -50,10 +51,7 @@ const GameDetails = () => {
               </Info>
             </Stats>
             <Media>
-              <img
-                src={resizeImage(game.background_image, 1280)}
-                alt={game.background_image}
-              />
+              <img src={resizeImg} alt={game.background_image} />
             </Media>
             <Description>
               <p>{game.description_raw}</p>
@@ -61,7 +59,7 @@ const GameDetails = () => {
             <div className="gallery">
               {screenshot?.map((screenshots) => (
                 <img
-                  src={resizeImage(screenshots.image, 1280)}
+                  src={ResizeScreenshot(screenshots.image, 1280)}
                   key={screenshots.id}
                   alt="game"
                 />

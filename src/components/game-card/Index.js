@@ -6,13 +6,14 @@ import { useDispatch } from 'react-redux';
 import { loadDetail } from '../../actions/detailsAction';
 
 //Utils
-import resizeImage from '../../utils/resizeImage';
+import useResizeImage from '../../utils/useResizeImage';
 
 //Router
 import { Link } from 'react-router-dom';
 
 const GameCard = ({ name, release, image, id, screenshots }) => {
   const dispatch = useDispatch();
+  const resizeImage = useResizeImage(image, 640);
   const loadDetailHandler = () => {
     dispatch(loadDetail(id, screenshots));
     document.body.style.overflow = 'hidden';
@@ -23,7 +24,7 @@ const GameCard = ({ name, release, image, id, screenshots }) => {
       <Link to={`/game/${id}`}>
         <h3>{name}</h3>
         <p>{release}</p>
-        <img src={resizeImage(image, 640)} alt={name} />
+        <img src={resizeImage} alt={name} />
       </Link>
     </StyledGame>
   );
