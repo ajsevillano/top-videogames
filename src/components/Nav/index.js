@@ -1,10 +1,16 @@
 import { StyledNav, StyledLogo } from './nav.styles';
-import logo from '../../images/logo.svg';
+import * as gamepad from '../../images/gamepad.json';
+import useLottie from '../../utils/useLottie';
 import { useState, useRef } from 'react';
 import useNavigation from './nav.utils';
 
 const Nav = () => {
+  //Lottie animation
+  const lottieOptions = { height: 100, width: 100, animationName: gamepad };
+  const [animatedLogo] = useLottie(lottieOptions);
+
   const buttonRef = useRef();
+
   const [textInput, setTextInput] = useState('');
   const [inputHandler, submitSearch] = useNavigation(
     textInput,
@@ -15,7 +21,7 @@ const Nav = () => {
   return (
     <StyledNav>
       <StyledLogo>
-        <img src={logo} alt="Logo" />
+        {animatedLogo}
         <h1>Top Videogames</h1>
       </StyledLogo>
       <form onSubmit={submitSearch} className="search">

@@ -38,9 +38,9 @@ export const StyledLogo = styled(motion.div)`
   justify-content: center;
   padding: 1rem;
   align-items: center;
-  img {
-    height: 2.5rem;
-    width: 2.5rem;
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
     margin-right: 1rem;
   }
 `;
