@@ -1,7 +1,11 @@
+import { useState, useRef } from 'react';
+
+//Styles & animations
 import { StyledNav, StyledLogo } from './nav.styles';
 import * as gamepad from '../../images/gamepad.json';
 import useLottie from '../../utils/useLottie';
-import { useState, useRef } from 'react';
+
+//Navigation Utils
 import useNavigation from './nav.utils';
 
 const Nav = () => {

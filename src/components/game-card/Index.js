@@ -1,10 +1,13 @@
 //Styles & animations
 import StyledGame from './game-card.styles';
+
 //Redux
 import { useDispatch } from 'react-redux';
 import { loadDetail } from '../../actions/detailsAction';
+
 //Utils
 import resizeImage from '../../utils/resizeImage';
+
 //Router
 import { Link } from 'react-router-dom';
 
