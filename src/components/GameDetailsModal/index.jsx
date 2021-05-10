@@ -19,6 +19,7 @@ import {
   getRating,
 } from './GameDetailsModal.utils';
 import Platforms from './Platforms';
+import Rating from './Rating';
 
 const GameDetailsModal = () => {
   //Extract data from Store
@@ -35,11 +36,11 @@ const GameDetailsModal = () => {
         >
           <StyledDetail>
             <StyledStats>
-              <div className="rating">
-                <h3>{game.name}</h3>
-                <p>Rating: {game.rating}</p>
-                <p>{getRating(game.rating)}</p>
-              </div>
+              <Rating
+                name={game.name}
+                rating={game.rating}
+                getRating={getRating}
+              />
               <Platforms
                 state={game.parent_platforms}
                 getPlatformIcon={getPlatformIcon}
