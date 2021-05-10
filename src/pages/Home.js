@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 //Components
-import GameDetails from '../components/game-details';
+import GameDetailsModal from '../components/GameDetailsModal';
 import GameSection from '../components/GameSection';
 
 //Router
@@ -32,14 +32,10 @@ const Home = () => {
 
   return (
     <StyledGameList>
-      {pathID && <GameDetails />}
-      {/* Search section */}
+      {pathID && <GameDetailsModal />}
       {searched.length ? <GameSection state={searched} title="Searched" /> : ''}
-      {/* Upcoming games */}
       <GameSection state={upcoming} title="Upcoming" />
-      {/* Popular games */}
       <GameSection state={popular} title="Popular" />
-      {/* New games */}
       <GameSection state={newGames} title="New" />
     </StyledGameList>
   );

@@ -1,13 +1,13 @@
 //Styles & animations
 import {
-  Modal,
-  Detail,
-  Stats,
-  Info,
-  Platforms,
-  Media,
-  Description,
-} from './game-details.styles';
+  StyledModal,
+  StyledDetail,
+  StyledStats,
+  StyledInfo,
+  StyledPlatforms,
+  StyledMedia,
+  StyledDescription,
+} from './GameDetailsModal.styles';
 
 //Redux
 import { useSelector } from 'react-redux';
@@ -19,9 +19,9 @@ import {
   exitDetailHandler,
   getPlatformIcon,
   getRating,
-} from './game-details.utils';
+} from './GameDetailsModal.utils';
 
-const GameDetails = () => {
+const GameDetailsModal = () => {
   //Extract data from Store
   const { game, screenshot, isLoading } = useSelector((state) => state.detail);
   const history = useHistory();
@@ -30,32 +30,32 @@ const GameDetails = () => {
   return (
     <>
       {!isLoading && (
-        <Modal
+        <StyledModal
           className="shadow"
           onClick={(e) => exitDetailHandler(e, history)}
         >
-          <Detail>
-            <Stats>
+          <StyledDetail>
+            <StyledStats>
               <div className="rating">
                 <h3>{game.name}</h3>
                 <p>Rating: {game.rating}</p>
                 <p>{getRating(game.rating)}</p>
               </div>
-              <Info>
+              <StyledInfo>
                 <h3>Platform</h3>
-                <Platforms>
+                <StyledPlatforms>
                   {game.parent_platforms?.map((data) =>
                     getPlatformIcon(data.platform.name, data.platform.id)
                   )}
-                </Platforms>
-              </Info>
-            </Stats>
-            <Media>
+                </StyledPlatforms>
+              </StyledInfo>
+            </StyledStats>
+            <StyledMedia>
               <img src={resizeImg} alt={game.background_image} />
-            </Media>
-            <Description>
+            </StyledMedia>
+            <StyledDescription>
               <p>{game.description_raw}</p>
-            </Description>
+            </StyledDescription>
             <div className="gallery">
               {screenshot?.map((screenshots) => (
                 <img
@@ -65,11 +65,11 @@ const GameDetails = () => {
                 />
               ))}
             </div>
-          </Detail>
-        </Modal>
+          </StyledDetail>
+        </StyledModal>
       )}
     </>
   );
 };
 
-export default GameDetails;
+export default GameDetailsModal;

@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const Modal = styled(motion.div)`
+export const StyledModal = styled(motion.div)`
   width: 100%;
   min-height: 100vh;
   overflow-y: scroll;
@@ -22,7 +22,7 @@ export const Modal = styled(motion.div)`
   }
 `;
 
-export const Detail = styled(motion.div)`
+export const StyledDetail = styled(motion.div)`
   width: 80%;
   border-radius: 1rem;
   padding: 2rem 5rem;
@@ -36,17 +36,17 @@ export const Detail = styled(motion.div)`
   }
 `;
 
-export const Stats = styled(motion.div)`
+export const StyledStats = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const Info = styled(motion.div)`
+export const StyledInfo = styled(motion.div)`
   text-align: center;
 `;
 
-export const Platforms = styled(motion.div)`
+export const StyledPlatforms = styled(motion.div)`
   display: flex;
   justify-content: space-evenly;
 
@@ -56,13 +56,13 @@ export const Platforms = styled(motion.div)`
   }
 `;
 
-export const Media = styled(motion.div)`
+export const StyledMedia = styled(motion.div)`
   margin-top: 5rem;
   img {
     width: 100%;
   }
 `;
 
-export const Description = styled(motion.div)`
+export const StyledDescription = styled(motion.div)`
   margin: 5rem 0rem;
 `;
