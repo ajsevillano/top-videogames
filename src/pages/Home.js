@@ -9,8 +9,8 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 //Components
-import GameCard from '../components/game-card';
 import GameDetails from '../components/game-details';
+import GameSection from '../components/GameSection';
 
 //Router
 import { useLocation } from 'react-router-dom';
@@ -31,82 +31,25 @@ const Home = () => {
   );
 
   return (
-    <GameList>
+    <StyledGameList>
       {pathID && <GameDetails />}
-      {searched.length ? (
-        <>
-          <h2>Searched games: {searched.length}</h2>
-          <Games>
-            {searched.map((game) => (
-              <GameCard
-                name={game.name}
-                release={game.released}
-                id={game.id}
-                key={game.id}
-                image={game.background_image}
-                screenshots={game.short_screenshots}
-              />
-            ))}
-          </Games>
-        </>
-      ) : (
-        ''
-      )}
-      <h2>Upcoming games</h2>
-      <Games>
-        {upcoming.map((game) => (
-          <GameCard
-            name={game.name}
-            release={game.released}
-            id={game.id}
-            key={game.id}
-            image={game.background_image}
-            screenshots={game.short_screenshots}
-          />
-        ))}
-      </Games>
-      <h2>Popular games</h2>
-      <Games>
-        {popular.map((game) => (
-          <GameCard
-            name={game.name}
-            release={game.released}
-            id={game.id}
-            key={game.id}
-            image={game.background_image}
-            screenshots={game.short_screenshots}
-          />
-        ))}
-      </Games>
-      <h2>New Games</h2>
-      <Games>
-        {newGames.map((game) => (
-          <GameCard
-            name={game.name}
-            release={game.released}
-            id={game.id}
-            key={game.id}
-            image={game.background_image}
-            screenshots={game.short_screenshots}
-          />
-        ))}
-      </Games>
-    </GameList>
+      {/* Search section */}
+      {searched.length ? <GameSection state={searched} title="Searched" /> : ''}
+      {/* Upcoming games */}
+      <GameSection state={upcoming} title="Upcoming" />
+      {/* Popular games */}
+      <GameSection state={popular} title="Popular" />
+      {/* New games */}
+      <GameSection state={newGames} title="New" />
+    </StyledGameList>
   );
 };
 
-const GameList = styled(motion.div)`
+const StyledGameList = styled(motion.div)`
   padding: 0rem 5rem;
   h2 {
     padding: 3rem 0rem;
   }
-`;
-const Games = styled(motion.div)`
-  min-height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  grid-column-gap: 3rem;
-  grid-row-gap: 3rem;
 `;
 
 export default Home;
