@@ -42,20 +42,6 @@ export const StyledStats = styled(motion.div)`
   justify-content: space-between;
 `;
 
-export const StyledInfo = styled(motion.div)`
-  text-align: center;
-`;
-
-export const StyledPlatforms = styled(motion.div)`
-  display: flex;
-  justify-content: space-evenly;
-
-  svg {
-    margin-left: 1rem;
-    color: #696969;
-  }
-`;
-
 export const StyledMedia = styled(motion.div)`
   margin-top: 5rem;
   img {

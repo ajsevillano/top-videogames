@@ -3,8 +3,6 @@ import {
   StyledModal,
   StyledDetail,
   StyledStats,
-  StyledInfo,
-  StyledPlatforms,
   StyledMedia,
   StyledDescription,
 } from './GameDetailsModal.styles';
@@ -20,6 +18,7 @@ import {
   getPlatformIcon,
   getRating,
 } from './GameDetailsModal.utils';
+import Platforms from './Platforms';
 
 const GameDetailsModal = () => {
   //Extract data from Store
@@ -41,14 +40,11 @@ const GameDetailsModal = () => {
                 <p>Rating: {game.rating}</p>
                 <p>{getRating(game.rating)}</p>
               </div>
-              <StyledInfo>
-                <h3>Platform</h3>
-                <StyledPlatforms>
-                  {game.parent_platforms?.map((data) =>
-                    getPlatformIcon(data.platform.name, data.platform.id)
-                  )}
-                </StyledPlatforms>
-              </StyledInfo>
+              <Platforms
+                state={game.parent_platforms}
+                getPlatformIcon={getPlatformIcon}
+                loading={isLoading}
+              />
             </StyledStats>
             <StyledMedia>
               <img src={resizeImg} alt={game.background_image} />
