@@ -31,17 +31,17 @@ const Home = () => {
   );
 
   return (
-    <StyledGameList>
+    <StyledGameListsWrapper>
       {pathID && <GameDetailsModal />}
       {searched.length ? <GameSection state={searched} title="Searched" /> : ''}
       <GameSection state={upcoming} title="Upcoming" />
       <GameSection state={popular} title="Popular" />
       <GameSection state={newGames} title="New" />
-    </StyledGameList>
+    </StyledGameListsWrapper>
   );
 };
 
-const StyledGameList = styled(motion.div)`
+const StyledGameListsWrapper = styled(motion.div)`
   padding: 0rem 5rem;
   h2 {
     padding: 3rem 0rem;

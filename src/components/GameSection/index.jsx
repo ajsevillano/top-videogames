@@ -1,5 +1,4 @@
-//Styles & animations
-import styled from 'styled-components';
+import { StyledGames } from './GameSection.styles';
 
 //Components
 import GameCard from '../GameCard';
@@ -25,13 +24,5 @@ const GameSection = ({ state, title }) => {
     </>
   );
 };
-
-const StyledGames = styled.div`
-  min-height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  grid-column-gap: 3rem;
-  grid-row-gap: 3rem;
-`;
 
 export default GameSection;
