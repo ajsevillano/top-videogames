@@ -13,7 +13,7 @@ import { useHistory } from 'react-router-dom';
 
 //Utils
 import useResizeImage from '../../utils/useResizeImage';
-import { exitDetailHandler, getPlatformIcon } from './GameDetailsModal.utils';
+import { exitDetailHandler } from './GameDetailsModal.utils';
 import Platforms from './Platforms';
 import Rating from './Rating';
 
@@ -33,11 +33,7 @@ const GameDetailsModal = () => {
           <StyledDetail>
             <StyledStats>
               <Rating name={game.name} rating={game.rating} />
-              <Platforms
-                state={game.parent_platforms}
-                getPlatformIcon={getPlatformIcon}
-                loading={isLoading}
-              />
+              <Platforms state={game.parent_platforms} loading={isLoading} />
             </StyledStats>
             <StyledMedia>
               <img src={resizeImg} alt={game.background_image} />

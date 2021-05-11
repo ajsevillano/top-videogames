@@ -1,6 +1,7 @@
 import { StyledInfo, StyledPlatforms } from './Platforms.styles';
+import { getPlatformIcon } from './Platforms.utils';
 
-const Platforms = ({ state, getPlatformIcon }) => {
+const Platforms = ({ state }) => {
   return (
     <StyledInfo>
       <h3>Platform</h3>
