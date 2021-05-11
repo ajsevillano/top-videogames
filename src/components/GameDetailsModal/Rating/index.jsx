@@ -1,4 +1,6 @@
-const Rating = ({ name, rating, getRating }) => {
+import { getRating } from './Rating.utils';
+
+const Rating = ({ name, rating }) => {
   return (
     <div className="rating">
       <h3>{name}</h3>
