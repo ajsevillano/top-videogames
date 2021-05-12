@@ -24,6 +24,7 @@ export const StyledModal = styled(motion.div)`
 
 export const StyledDetail = styled(motion.div)`
   width: 80%;
+  margin-top: 2rem;
   border-radius: 1rem;
   padding: 2rem 5rem;
   position: absolute;
@@ -33,6 +34,7 @@ export const StyledDetail = styled(motion.div)`
 
   img {
     width: 100%;
+    margin-bottom: 2rem;
   }
 `;
 
