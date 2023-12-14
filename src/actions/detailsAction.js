@@ -2,7 +2,7 @@ import axios from 'axios';
 import useApi from '../utils/useApi';
 
 export const loadDetail = (id, short_screenshots) => async (dispatch) => {
-  const [gameDetailsURL] = useApi();
+  const { gameDetailsURL } = useApi();
 
   dispatch({
     type: 'LOADING_DETAIL',
