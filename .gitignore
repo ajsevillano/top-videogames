@@ -24,3 +24,5 @@ yarn-error.log*
 
 #scripts
 acp.sh
+
+.netlify

@@ -4,38 +4,37 @@ const useApi = () => {
   const [lastYear, nextYear, currentDate] = useDates();
 
   //Api configuration: URL,Api key & filters
-  const baseUrl = 'https://api.rawg.io/api/';
-  const key = process.env.REACT_APP_API_KEY;
-  const orderPopularGames = '-rating';
-  const orderUpcomingGames = '-added';
-  const orderNewGAmes = '-release';
+  const baseURL = '/.netlify/functions';
   const itemsPerPage = 10;
 
-  //Games filter
-  const popularGames = `games?key=${key}&dates=${lastYear},${currentDate}&ordering=${orderPopularGames}&page_size=${itemsPerPage}`;
-  const upcomingGames = `games?key=${key}&dates=${currentDate},${nextYear}&ordering=${orderUpcomingGames}&page_size=${itemsPerPage}`;
-  const newGames = `games?key=${key}&dates=${lastYear},${currentDate}&ordering=${orderNewGAmes}&page_size=${itemsPerPage}`;
+  const API_URLS = {
+    all: `${baseURL}/all`,
+    search: `${baseURL}/search`,
+    details: `${baseURL}/gamedetails`,
+  };
 
-  //Game details
-  const gameDetailsURL = (game_id) =>
-    `https://api.rawg.io/api/games/${game_id}.json?&key=${key}`;
+  const API_FILTERS = {
+    popularGames: `?dates=${lastYear},${currentDate}&ordering=-rating&page_size=${itemsPerPage}`,
+    upcomingGames: `?dates=${currentDate},${nextYear}&ordering=-added&page_size=${itemsPerPage}`,
+    newGames: `?dates=${lastYear},${currentDate}&ordering=-release&page_size=${itemsPerPage}`,
+  };
 
-  //Search
-  const searchGameURL = (game_name) =>
-    `${baseUrl}games?key=${key}&search=${game_name}&page_size=${itemsPerPage}`;
+  const FINAL_ENDPOINTS = {
+    homeURLs: {
+      popularGames: `${API_URLS.all}${API_FILTERS.popularGames}`,
+      upcomingGames: `${API_URLS.all}${API_FILTERS.upcomingGames}`,
+      newGames: `${API_URLS.all}${API_FILTERS.newGames}`,
+    },
+    gameDetailsURL: (game_id) => `${API_URLS.details}?game_id=${game_id}`,
+    searchGameURL: (game_name) =>
+      `${API_URLS.search}?game_name=${game_name}&page_size=${itemsPerPage}`,
+  };
 
-  //Api filters URL
-  const popularGamesURL = `${baseUrl}${popularGames}`;
-  const upcomingGamesURL = `${baseUrl}${upcomingGames}`;
-  const newGamesURL = `${baseUrl}${newGames}`;
-
-  return [
-    gameDetailsURL,
-    popularGamesURL,
-    upcomingGamesURL,
-    newGamesURL,
-    searchGameURL,
-  ];
+  return {
+    gameDetailsURL: FINAL_ENDPOINTS.gameDetailsURL,
+    homeURLs: FINAL_ENDPOINTS.homeURLs,
+    searchGameURL: FINAL_ENDPOINTS.searchGameURL,
+  };
 };
 
 export default useApi;
